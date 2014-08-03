@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="xymz"
+  id="myeclipse.1398394669434"
+  context-root="/xymz"
+  j2ee-spec="6.0"
+  archive="xymz.war">
+  <attributes>
+    <attribute name="webrootdir" value="src/main/webapp" />
+  </attributes>
+</project-module>
+

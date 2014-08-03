@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="default" namespace="/" extends="struts-default">
+		<global-results>
+			<result name="index">index.jsp</result>
+		
+		</global-results>
+
+		<action name="user_*" class="userAction" method="{1}">
+		</action>
+
+		<action name="menu_*" class="menuAction" method="{1}">
+
+		</action>
+
+		<action name="department_*" class="departmentAction" method="{1}">
+		</action>
+		<action name="role_*" class="roleAction" method="{1}">
+		</action>
+		<action name="problem_*" class="problemAction" method="{1}"></action>
+		<action name="status_*" class="statusAction" method="{1}"></action>
+		<action name="classify_*" class="classifyAction" method="{1}"></action>
+		<action name="wb_*" class="wBAction" method="{1}"></action>
+		<action name="privilege_*" class="privilegeAction" method="{1}"></action>
+		<action name="sellMovie_*" class="sellMovieAction" method="{1}"></action>
+		<action name="hardware_*" class="sellHardwareAction" method="{1}"></action>
+		<action name="hardwareInfo_*" class="hardwareInfoAction"
+			method="{1}"></action>
+		<action name="knowledgeMenu_*" class="knowledgeMenuAction"
+			method="{1}"></action>
+		<action name="topic_*" class="topicAction" method="{1}">
+			<result name="saveUI">/knowledge/saveUI.jsp</result>
+			<result name="toListUI">/knowledge/knowledge.jsp</result>
+			<result name="topic_show">/knowledge/show.jsp</result>
+		</action>
+	</package>
+</struts>

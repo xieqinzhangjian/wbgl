@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="xymz.pojo">
+
+	<class name="Problem">
+		<id name="id">
+			<generator class="native" />
+		</id>
+	
+		<property name="createDate"  />
+		<property name="lastUpdateTime"  />
+		<property name="title" />
+		<property name="content" />
+		<property name="userName" /><!-- 受理人姓名 -->
+		<property name="appointName" /><!-- 委托人姓名 -->
+		<property name="wbName" /><!-- 网吧名称 -->
+		<property name="statusName" /><!-- 状态名称 -->
+		<property name="classifyName" /><!-- 分类名称 -->
+	
+	
+	
+	<many-to-one name="status" class="Status" column="statusId" cascade="save-update" ></many-to-one>
+
+	<!-- 本类与受理人多对一关系 -->
+		<many-to-one name="user" class="User" column="userId" cascade="save-update"></many-to-one>
+		<many-to-one name="appoint" class="User" column="appointId" cascade="save-update"></many-to-one>
+	<!-- 一个问题只属于一家网吧 -->
+	<many-to-one name="wb" class="WB" column="wbId"    cascade="save-update"></many-to-one>
+	
+	<!-- 一个问题只属于一个分类 -->
+	<many-to-one name="classify" class="Classify" column="classifyId" cascade="save-update" ></many-to-one>
+	
+	<!-- 一个问题有多个回复 -->
+		<set name="replySet" cascade="delete" order-by="problemId asc" lazy="true"  >
+			<key column="problemId" ></key>
+			<one-to-many class="Reply"  />
+		</set>	
+	</class>
+
+</hibernate-mapping>

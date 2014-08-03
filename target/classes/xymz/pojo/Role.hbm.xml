@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="xymz.pojo">
+
+	<class name="Role">
+		<id name="id">
+            <generator class="native"/>
+		</id>
+		<property name="text"/>
+		<property name="description"/>
+				<!-- roles属性，本类与User的多对多 -->
+		<set name="userSet" table="user_role">
+			<key column="roleId"></key>
+			<many-to-many class="User" column="userId"></many-to-many>
+		</set>
+		
+		<!-- 权限和岗位是多对多 -->
+		<set name="privilegeSet" table="role_privilege">
+			<key  column="roleId"></key>
+			<many-to-many class="Privilege" column="privilegeId">
+			</many-to-many>
+		</set>
+		
+		
+		<!--  岗位和部门也是多对一的关系 -->
+		<many-to-one name="department" class="Department" column="departmentId" ></many-to-one>
+		
+	</class>
+	
+</hibernate-mapping>

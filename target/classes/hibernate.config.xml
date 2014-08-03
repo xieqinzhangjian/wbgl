@@ -1,0 +1,44 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+<session-factory>
+	<property name="hibernate.connection.driver_class">
+		com.mysql.jdbc.Driver
+	</property>
+	<property name="hibernate.connection.url">
+		jdbc:mysql:///xymz
+	</property>
+	<property name="hibernate.connection.username">root</property>
+	<property name="hibernate.connection.password">abc#123</property>
+
+	<!-- 2 配置数据库方言(选择数据库处理类，为指定的数据库生成相应的sql语句) -->
+	<property name="hibernate.dialect">
+		org.hibernate.dialect.MySQL5Dialect
+	</property>
+	<!-- 3 sql语句输出显示效果，开发使用 -->
+	<!-- * 在控制台上，显示sql语句 -->
+	<property name="hibernate.show_sql">true</property>
+	<property name="hibernate.hbm2ddl.auto">update</property>
+	<property name="javax.persistence.validation.mode">none</property>
+
+
+	<mapping resource="xymz/pojo/User.hbm.xml" />
+	<mapping resource="xymz/pojo/Menu.hbm.xml" />
+	<mapping resource="xymz/pojo/Department.hbm.xml" />
+	<mapping resource="xymz/pojo/Role.hbm.xml" />
+	<mapping resource="xymz/pojo/Classify.hbm.xml" />
+	<mapping resource="xymz/pojo/Problem.hbm.xml" />
+	<mapping resource="xymz/pojo/Reply.hbm.xml" />
+	<mapping resource="xymz/pojo/Status.hbm.xml" />
+	<mapping resource="xymz/pojo/WB.hbm.xml" />
+	<mapping resource="xymz/pojo/Privilege.hbm.xml" />
+	<mapping resource="xymz/pojo/MoviePayLog.hbm.xml" />
+	<mapping resource="xymz/pojo/SellMovie.hbm.xml" />
+	<mapping resource="xymz/pojo/HardwareInfo.hbm.xml" />
+	<mapping resource="xymz/pojo/SellHardware.hbm.xml" />
+	<mapping resource="xymz/pojo/KnowledgeMenu.hbm.xml" />
+	<mapping resource="xymz/pojo/Topic.hbm.xml" />
+</session-factory>
+
+</hibernate-configuration>

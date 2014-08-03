@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="xymz.pojo">
+	<class name="HardwareInfo">
+		<id name="id">
+			<generator class="native" />
+		</id>
+
+		<property name="name" />
+		<property name="createDate" />
+		<property name="expirationDate" />
+		<property name="sn" />
+		<property name="price" />
+		<property name="costing" />
+		<property name="remarks" />
+
+		<property name="payment" />
+		<property name="status" />
+		<property name="percentage" />
+		<property name="number" />
+		<property name="hardware_detail" />
+		<property name="salesmanName" />
+
+		<many-to-one name="sellHardware" class="SellHardware" lazy="false"
+			column="sellHardwareId">
+		</many-to-one>
+		<many-to-one name="salesman" class="User" column="salesmanId">
+		</many-to-one>
+	</class>
+</hibernate-mapping>

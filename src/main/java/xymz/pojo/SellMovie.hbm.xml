@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="xymz.pojo">
+	<class name="SellMovie">
+		<id name="id">
+			<generator class="native" />
+		</id>
+		<property name="regNumber" />
+		<property name="agent" />
+		<property name="startUseDate" />
+		<property name="endUseDate" />
+		<property name="isCharge" />
+		<property name="isMyGameSoft" />
+		<property name="cost" />
+		<property name="wbTel" />
+		<property name="wbName" />
+		<property name="state" />
+		<property name="scope" />
+		<property name="contact" />
+		<property name="addr" />
+		<property name="paymentDate" /><!-- 收费日期 -->
+
+		<set name="moviePayLog" cascade="all">
+			<key column="sellMovieId"></key>
+			<one-to-many class="MoviePayLog"/>
+		</set>
+		
+		
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="xymz.pojo">
+	<class name="Menu" table="menu">
+		<id name="id">
+			<generator class="native"></generator>
+		</id>
+		<property name="text"></property>
+		<property name="url"></property>
+		<property name="state"></property>
+		<property name="iconCls"></property>
+		
+		<!-- 与父菜单是多对一关系 -->
+		<many-to-one name="parentMenu" class="Menu" column="parentId"></many-to-one>
+		
+		<!-- 与子菜单是一对多关系 -->
+		<set name="children">
+			<key column="parentId"/>
+			<one-to-many class="Menu"/>
+		</set>
+	
+	</class>
+</hibernate-mapping>
